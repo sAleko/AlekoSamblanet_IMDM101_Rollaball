@@ -18,7 +18,7 @@ public class moveToPlayer : MonoBehaviour
 
     private void Update()
     {
-        agent.destination = goal.position;
+        if (goal != null) agent.destination = goal.position;
     }
 
 }
