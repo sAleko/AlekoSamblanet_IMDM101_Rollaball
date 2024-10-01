@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private int count;
     private float movementX;
     private float movementY;
+    private int totalCollectiblesCount;
 
     [SerializeField]
     private float speed = 1f;
@@ -26,7 +27,7 @@ public class PlayerController : MonoBehaviour
         count = 0;
         SetCountText();
         winTextObject.SetActive(false);
-
+        totalCollectiblesCount = GameObject.FindGameObjectsWithTag("PickUp").Length;
     }
 
     private void FixedUpdate()
@@ -52,7 +53,7 @@ public class PlayerController : MonoBehaviour
             count = count + 1;
             SetCountText();
             
-            if (count >= 9)
+            if (count >= totalCollectiblesCount)
             {
                 winTextObject.SetActive(true);
             }
